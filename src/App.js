@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "../src/assets/images/music.png";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Searcharea from "./components/Searcharea/Searcharea.jsx";
+import SearchOutput from "./components/SearchOutput/SearchOutput.jsx";
 
+import SearchView from "./View/SearchView";
 function App() {
+  const [image, setimage] = useState("");
+  const [dataList, setdataList] = useState(null);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://rest.bandsintown.com/artists/maroon 5?app_id=asd")
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setimage(res.data.image_url);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className="flex flex-col bg-white-500 min-h-screen ">
+      <nav className="flex flex-row justify-content justify-center">
+        <img src={logo} width="30" height="30" class="d-inline-block" alt="" />
+        <a class="text-xl font-bold" style={{ background: "transparent" }}>
+          Art-n-Artist
         </a>
-      </header>
+      </nav>
+
+      {/* <Searcharea />
+      <Row lg="12">
+        <Col>
+          <SearchOutput image={image} />
+        </Col>
+      </Row> */}
+      <SearchView />
     </div>
   );
 }
